@@ -25,6 +25,7 @@ namespace Wingur
         public MainPage()
         {
             this.InitializeComponent();
+            
         }
     }
 }

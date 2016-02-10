@@ -46,7 +46,7 @@ namespace Wingur
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {
-                this.DebugSettings.EnableFrameRateCounter = true;
+                //this.DebugSettings.EnableFrameRateCounter = true; //enables annoying numbers
             }
 #endif
 
@@ -77,6 +77,20 @@ namespace Wingur
                 // parameter
                 rootFrame.Navigate(typeof(MainPage), e.Arguments);
             }
+            var titleBar = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().TitleBar;
+            titleBar.BackgroundColor = Windows.UI.Colors.Black;
+            titleBar.ForegroundColor = Windows.UI.Colors.White;
+            titleBar.ButtonBackgroundColor = Windows.UI.Colors.Black;
+            titleBar.ButtonForegroundColor = Windows.UI.Colors.White;
+            titleBar.ButtonHoverBackgroundColor = Windows.UI.Color.FromArgb(255,52,52,52);
+            titleBar.ButtonHoverForegroundColor = Windows.UI.Colors.White;
+            titleBar.ButtonPressedBackgroundColor = Windows.UI.Color.FromArgb(255, 76, 76, 76);
+            titleBar.ButtonPressedForegroundColor = Windows.UI.Colors.White;
+            titleBar.InactiveBackgroundColor = Windows.UI.Colors.Black;
+            titleBar.InactiveForegroundColor = Windows.UI.Colors.White;
+            titleBar.ButtonInactiveBackgroundColor = Windows.UI.Colors.Black;
+            titleBar.ButtonInactiveForegroundColor = Windows.UI.Colors.White;
+
             // Ensure the current window is active
             Window.Current.Activate();
         }
