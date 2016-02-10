@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Threading.Tasks;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -25,7 +26,9 @@ namespace Wingur
         public MainPage()
         {
             this.InitializeComponent();
-            
+            //Testing Functions
+            //BLImgurAPI bl = new BLImgurAPI();
+            //Task.Run(()=>bl.GetGallery("hot", "viral", true, 1)).Wait();
         }
     }
 }
