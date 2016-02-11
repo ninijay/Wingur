@@ -27,8 +27,8 @@ namespace Wingur
         {
             this.InitializeComponent();
             //Testing Functions
-            //BLImgurAPI bl = new BLImgurAPI();
-            //Task.Run(()=>bl.GetGallery("hot", "viral", true, 1)).Wait();
+            BLImgurAPI bl = new BLImgurAPI();
+            String json = bl.GetGallery("user", "time", true, 1);
         }
     }
 }
