@@ -30,6 +30,11 @@ namespace Wingur
             
         }
 
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            MenuAnimationOpen.Begin();
+        }
+
         private void txtUsername_Tapped(object sender, TappedRoutedEventArgs e)
         {
             //TODO: Sign in method or if already signed in, bring up user profile
@@ -52,5 +57,7 @@ namespace Wingur
             //TODO: Process JSON
             //TODO: Display Content
         }
+
+
     }
 }
