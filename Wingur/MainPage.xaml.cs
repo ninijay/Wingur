@@ -27,8 +27,30 @@ namespace Wingur
         {
             this.InitializeComponent();
             //Testing Functions
+            
+        }
+
+        private void txtUsername_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            //TODO: Sign in method or if already signed in, bring up user profile
+        }
+
+        private void txtViral_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            //TODO: Get Viral Gallery
+            BLImgurAPI bl = new BLImgurAPI();
+            String json = bl.GetGallery("hot", "time", true, 1);
+            //TODO: Process JSON
+            //TODO: Display Content
+        }
+
+        private void txtUserSub_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            //TODO: Get User sub Gallery
             BLImgurAPI bl = new BLImgurAPI();
             String json = bl.GetGallery("user", "time", true, 1);
+            //TODO: Process JSON
+            //TODO: Display Content
         }
     }
 }

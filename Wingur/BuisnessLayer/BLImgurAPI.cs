@@ -29,9 +29,7 @@ namespace Wingur
             if (section == "user")
             {
                     URI += "showViral=" + Viral.ToString();
-            }
-  
-            
+            }              
             var jsonStr = client.GetStringAsync(URI).Result;
             return jsonStr;
            // throw new Exception("Method not implemented yet");
@@ -51,7 +49,7 @@ namespace Wingur
             client.Timeout = System.TimeSpan.FromSeconds(60);
             if(OAuth!=null)
             {
-                client.DefaultRequestHeaders.Add("Bearer", OAuth); //Add OAuth Token to http Headers
+                client.DefaultRequestHeaders.Add("Authorization","Bearer" + OAuth); //Add OAuth Token to http Headers
             }
             return client;
         }

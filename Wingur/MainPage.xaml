@@ -7,14 +7,16 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="Black">
-        <StackPanel Orientation="Vertical" Height="1080" VerticalAlignment="Top" Background="Black" Canvas.ZIndex="1" HorizontalAlignment="Left" Width="50">
-            <Button x:Name="button" Content="Testing" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Canvas.ZIndex="2" Background="#FF424242"/>
-            <Button x:Name="button1" Content="Testing" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Canvas.ZIndex="2" Background="#FF424242"/>
-            <Button x:Name="button2" Content="Button" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Canvas.ZIndex="2" Background="#FF424242"/>
-            <Button x:Name="button3" Content="Button" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Canvas.ZIndex="2" Background="#FF424242"/>
-
+    <Canvas Background="Black">
+        <StackPanel Orientation="Vertical" Height="1080" VerticalAlignment="Top" Background="Black" Canvas.ZIndex="1" HorizontalAlignment="Left" Width="123">
+            <TextBlock x:Name="txtUsername" Canvas.ZIndex="2" Tapped="txtUsername_Tapped"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextAlignment="Center" Height="42">
+             <LineBreak />
+             Tap to sign in
+            </TextBlock>
+            <TextBlock x:Name="separator" Text="____________________" Canvas.ZIndex="2"/>
+            <TextBlock x:Name="txtViral" Text="Most Viral" Canvas.ZIndex="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextAlignment="Center"/>
+            <TextBlock x:Name="txtUserSub" Text="User Submitted" Canvas.ZIndex="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextAlignment="Center"/>
         </StackPanel>
-    </Grid>
+    </Canvas>
 
 </Page>
