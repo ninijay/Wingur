@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
-
+using Windows.Data.Json;
 namespace Wingur
 {
     class BLImgurAPI
@@ -20,7 +20,7 @@ namespace Wingur
         /// <param name="Page">integer - the data paging number</param>
         /// <param name="OAuth">OAuth Token - For user authentication</param>
         /// <returns></returns>
-        public string GetGallery(String section,String sort, Boolean Viral, Int32 Page, String OAuth =null )
+        public JsonObject GetGallery(String section,String sort, Boolean Viral, Int32 Page, String OAuth =null )
         {
             HttpClient client = GetHttpClient(OAuth);
             
@@ -31,7 +31,9 @@ namespace Wingur
                     URI += "showViral=" + Viral.ToString();
             }              
             var jsonStr = client.GetStringAsync(URI).Result;
-            return jsonStr;
+            JsonObject json = new JsonObject();
+            JsonObject.TryParse(jsonStr, out json);
+            return json;
            // throw new Exception("Method not implemented yet");
         }
 

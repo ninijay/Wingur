@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.Threading.Tasks;
+using Windows.Data.Json;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -44,7 +45,8 @@ namespace Wingur
         {
             //TODO: Get Viral Gallery
             BLImgurAPI bl = new BLImgurAPI();
-            String json = bl.GetGallery("hot", "time", true, 1);
+            JsonObject json = bl.GetGallery("hot", "time", true, 1);
+
             //TODO: Process JSON
             //TODO: Display Content
         }
@@ -53,7 +55,7 @@ namespace Wingur
         {
             //TODO: Get User sub Gallery
             BLImgurAPI bl = new BLImgurAPI();
-            String json = bl.GetGallery("user", "time", true, 1);
+            JsonObject json = bl.GetGallery("user", "time", true, 1);
             //TODO: Process JSON
             //TODO: Display Content
         }
