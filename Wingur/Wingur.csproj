@@ -99,6 +99,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="BuisnessLayer\BLImgurAPI.cs" />
+    <Compile Include="BuisnessLayer\JSONProcessor.cs" />
     <Compile Include="Config\Config.cs" />
     <Compile Include="DataLayer\ImgurUser.cs" />
     <Compile Include="MainPage.xaml.cs">

@@ -56,7 +56,7 @@ namespace Wingur
             return client;
         }
 
-        private DataLayer.ImgurUser logIn(string username)
+        private DataLayer.ImgurUser logIn(string username, String OAuth = null)
         {
             DataLayer.ImgurUser user;
             //------------------------
@@ -71,10 +71,13 @@ namespace Wingur
             JsonObject.TryParse(jsonStr, out json);
 
             //TODO: Process JSON
-            user = new DataLayer.ImgurUser;
+            user = new DataLayer.ImgurUser();
             // user.id = ...
             // etc...
             // throw new Exception("Method not implemented yet");
+
+            // return logged in user:
+            return user;
         }
     }
 }
