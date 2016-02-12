@@ -55,5 +55,26 @@ namespace Wingur
             }
             return client;
         }
+
+        private DataLayer.ImgurUser logIn(string username)
+        {
+            DataLayer.ImgurUser user;
+            //------------------------
+
+            HttpClient client = GetHttpClient(OAuth);
+
+            string URI = BaseURL;
+            URI += "account/" + username + ".json";
+           
+            var jsonStr = client.GetStringAsync(URI).Result;
+            JsonObject json = new JsonObject();
+            JsonObject.TryParse(jsonStr, out json);
+
+            //TODO: Process JSON
+            user = new DataLayer.ImgurUser;
+            // user.id = ...
+            // etc...
+            // throw new Exception("Method not implemented yet");
+        }
     }
 }
