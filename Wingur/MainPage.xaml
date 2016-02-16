@@ -11,7 +11,7 @@
             <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="Menu">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="125"/>
             </DoubleAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="MainPage1">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="txtUsername">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4">
                     <DiscreteObjectKeyFrame.Value>
                         <Visibility>Visible</Visibility>
@@ -44,7 +44,7 @@
 
     <Canvas Background="Black">
         <StackPanel BorderThickness="1"  BorderBrush="White" x:Name="Menu" Orientation="Vertical" Height="1080" VerticalAlignment="Top" Background="Black" Canvas.ZIndex="1" HorizontalAlignment="Left" Width="0">
-            <TextBlock  Visibility="Collapsed" x:Name="MainPage1" Canvas.ZIndex="2" Tapped="txtUsername_Tapped"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextAlignment="Center" Height="42">
+            <TextBlock x:Name="txtUsername" Visibility="Collapsed" Canvas.ZIndex="2" Tapped="txtUsername_Tapped"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextAlignment="Center" Height="42">
              <LineBreak />
              Tap to sign in
             </TextBlock>
@@ -52,6 +52,7 @@
             <TextBlock  Visibility="Collapsed" x:Name="txtViral" Text="Most Viral" Canvas.ZIndex="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextAlignment="Center" Tapped="txtViral_Tapped"/>
             <TextBlock Visibility="Collapsed" x:Name="txtUserSub" Text="User Submitted" Canvas.ZIndex="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextAlignment="Center" Tapped="txtUserSub_Tapped"/>
         </StackPanel>
+        <WebView x:Name="wvAuthenticate" Height="574" Canvas.Left="125" Canvas.Top="24" Width="927" Visibility="Visible" LoadCompleted="wvAuthenticate_LoadCompleted"/>
     </Canvas>
 
 </Page>

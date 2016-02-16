@@ -47,16 +47,20 @@ namespace Wingur
         {
             HttpClient client = new HttpClient();
             //Must send client ID to access API
-            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Client-ID", Config.Config.client_id);
+            
             client.Timeout = System.TimeSpan.FromSeconds(60);
             if(OAuth!=null)
             {
-                client.DefaultRequestHeaders.Add("Authorization","Bearer" + OAuth); //Add OAuth Token to http Headers
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", OAuth);
+            }
+            else
+            {
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Client-ID", Config.Config.client_id);
             }
             return client;
         }
 
-        private DataLayer.ImgurUser logIn(string username, String OAuth = null)
+        public DataLayer.ImgurUser logIn(string username, String OAuth = null)
         {
             DataLayer.ImgurUser user;
             //------------------------
@@ -72,9 +76,8 @@ namespace Wingur
 
             //TODO: Process JSON
             user = new DataLayer.ImgurUser();
-            // user.id = ...
-            // etc...
-            // throw new Exception("Method not implemented yet");
+            BuisnessLayer.JSONProcessor jproc = new BuisnessLayer.JSONProcessor();
+            user = jproc.jsonToUser(json);
 
             // return logged in user:
             return user;
