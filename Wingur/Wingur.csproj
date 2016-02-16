@@ -103,6 +103,7 @@
     <Compile Include="Config\Config.cs" />
     <Compile Include="DataLayer\ImgurUser.cs" />
     <Compile Include="DataLayer\OAuthToken.cs" />
+    <Compile Include="DataLayer\Settings.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 using Windows.Data.Json;
-namespace Wingur
+namespace Wingur.BuisnessLayer
 {
     class BLImgurAPI
     {
@@ -81,6 +81,12 @@ namespace Wingur
 
             // return logged in user:
             return user;
+        }
+
+        public DataLayer.OAuthToken RefreshOAuth(DataLayer.OAuthToken Token)
+        {
+            //TODO: REFRESH OAUTH
+            return null;
         }
     }
 }
