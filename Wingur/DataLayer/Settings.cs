@@ -33,21 +33,29 @@ namespace Wingur.DataLayer
             OAuthToken o = new OAuthToken();
             ImgurUser u = new ImgurUser();
 
-            u.Bio=(string)localSettings.Values["User_Bio"];
-            u.Created=(int)localSettings.Values["User_Created"];
-            u.Id=(int)localSettings.Values["User_Id"];
-            u.Pro=(int)localSettings.Values["User_Pro"];
-            u.Rep=(float)localSettings.Values["User_Rep"];
-            u.Url=(string)localSettings.Values["User_Url"];
-            o.Authenticated = (bool)localSettings.Values["Authenticated"];
-            o.Expires = DateTime.FromBinary((long)localSettings.Values["Expires"]);
-            o.RefreshToken = (string)localSettings.Values["RefreshToken"];
-            o.Token = (string)localSettings.Values["Token"];
-            o.User = u;
+            try {
+                u.Bio = (string)localSettings.Values["User_Bio"];
+                u.Created = (int)localSettings.Values["User_Created"];
+                u.Id = (int)localSettings.Values["User_Id"];
+                u.Pro = (int)localSettings.Values["User_Pro"];
+                u.Rep = (float)localSettings.Values["User_Rep"];
+                u.Url = (string)localSettings.Values["User_Url"];
+                o.Authenticated = (bool)localSettings.Values["Authenticated"];
+                o.Expires = DateTime.FromBinary((long)localSettings.Values["Expires"]);
+                o.RefreshToken = (string)localSettings.Values["RefreshToken"];
+                o.Token = (string)localSettings.Values["Token"];
+                o.User = u;
 
-            BuisnessLayer.BLImgurAPI bl = new BuisnessLayer.BLImgurAPI();
-            u= bl.logIn(u.Url, o.Token);
-            o.User = u;
+                BuisnessLayer.BLImgurAPI bl = new BuisnessLayer.BLImgurAPI();
+                u = bl.logIn(u.Url, o.Token);
+                o.User = u;
+            }
+            catch
+            {
+                o = new OAuthToken();
+                u = new ImgurUser();
+                o.User = u;
+            }
 
             return o;
         }

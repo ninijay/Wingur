@@ -38,6 +38,7 @@ namespace Wingur
             MenuAnimationOpen.Begin();
             //Get Locally stored OAuth token
             DataLayer.Settings settings = new DataLayer.Settings();
+            //settings.ClearOAuth();
             oat = settings.GetOAuth();
             if(oat.Authenticated)
             {
