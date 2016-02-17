@@ -86,7 +86,23 @@ namespace Wingur.BuisnessLayer
         public DataLayer.OAuthToken RefreshOAuth(DataLayer.OAuthToken Token)
         {
             //TODO: REFRESH OAUTH
-            return null;
+            var formContent = new FormUrlEncodedContent(new[]
+            {
+                new KeyValuePair<string, string>("refresh_token", Token.RefreshToken),
+                new KeyValuePair<string, string>("client_id", Config.Config.client_id),
+                new KeyValuePair<string, string>("client_secret", Config.Config.client_priv),
+                new KeyValuePair<string, string>("grant_type", "refresh_token")
+            });
+
+            HttpClient client = GetHttpClient(null);
+            String URI = "https://api.imgur.com/oauth2/token";
+            var response = client.PostAsync(URI, formContent).Result;
+            JsonObject jo = JsonObject.Parse(response.ToString());
+            Token.RefreshToken = jo.GetNamedString("refresh_token");
+            Token.Token = jo.GetNamedString("access_token");
+            Token.Expires = DateTime.Now.AddSeconds(jo.GetNamedNumber("expires_in"));
+
+            return Token;            
         }
     }
 }

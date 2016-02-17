@@ -39,9 +39,16 @@ namespace Wingur
             //Get Locally stored OAuth token
             DataLayer.Settings settings = new DataLayer.Settings();
             //settings.ClearOAuth();
-            oat = settings.GetOAuth();
-            if(oat.Authenticated)
+            oat = settings.GetOAuth();         
+
+            if (oat.Authenticated)
             {
+                //refresh OAuth Token if it's about to expire or is expired
+                if(oat.Expires>=DateTime.Now.AddDays(-7))
+                { 
+                    BuisnessLayer.BLImgurAPI bl = new BuisnessLayer.BLImgurAPI();
+                    oat=bl.RefreshOAuth(oat);
+                }
                 txtUsername.Text = "\n" + oat.User.Url;
             }
         }
